@@ -3,7 +3,6 @@ import "./App.css";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import Pusher from "pusher-js";
-
 import Header from "./components/Header";
 import Posts from "./components/Posts";
 
@@ -15,7 +14,7 @@ class App extends Component {
   constructor() {
     super();
     // connect to pusher
-    this.pusher = new Pusher("PUSHER_APP_KEY", {
+    this.pusher = new Pusher(process.env.REACT_APP_PUSHER_APP_KEY, {
       cluster: "eu",
       encrypted: true
     });

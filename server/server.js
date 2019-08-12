@@ -6,6 +6,8 @@ let Pusher = require("pusher");
 let bodyParser = require("body-parser");
 let Multipart = require("connect-multiparty");
 
+require("dotenv").config();
+
 // Construct a schema, using GraphQL schema language
 let schema = buildSchema(`
   type User {
@@ -33,13 +35,14 @@ let userslist = {
   a: {
     id: "a",
     nickname: "Chris",
-    avatar: "https://www.laravelnigeria.com/img/chris.jpg"
+    avatar:
+      "https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?cs=srgb&dl=adult-beach-casual-736716.jpg&fm=jpg"
   },
   b: {
     id: "b",
     nickname: "OG",
     avatar:
-      "http://res.cloudinary.com/og-tech/image/upload/q_40/v1506850315/contact_tzltnn.jpg"
+      "https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?cs=srgb&dl=adult-beach-casual-736716.jpg&fm=jpg"
   }
 };
 
@@ -88,10 +91,10 @@ let root = {
 
 // Configure Pusher client
 let pusher = new Pusher({
-  appId: "PUSHER_APP_ID",
-  key: "PUSHER_APP_KEY",
-  secret: "PUSHER_APP_SECRET",
-  cluster: "PUSHER_APP_CLUSTER",
+  appId: process.env.PUSHER_APP_ID,
+  key: process.env.PUSHER_APP_KEY,
+  secret: process.env.PUSHER_APP_SECRET,
+  cluster: process.env.PUSHER_APP_CLUSTER,
   encrypted: true
 });
 
