@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "./Post.css";
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
+
 class Post extends Component {
   render() {
     const nickname = this.props.nickname;
